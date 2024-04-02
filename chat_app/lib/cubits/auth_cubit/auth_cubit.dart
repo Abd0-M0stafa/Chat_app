@@ -71,7 +71,7 @@ class AuthCubit extends Cubit<AuthState> {
 
         await FirebaseAuth.instance.signInWithCredential(credential);
       }
-      emit(SignWithGoogleSuccess());
+      emit(SignWithGoogleSuccess(email: googleSignInAccount!.email));
     } catch (e) {
       emit(SignWithGoogleFailure(errorMessage: e.toString()));
     }
@@ -87,7 +87,7 @@ class AuthCubit extends Cubit<AuthState> {
 
       final UserCredential userCredential = await FirebaseAuth.instance
           .signInWithCredential(facebookAuthCredential);
-      emit(SignWithFacebookSuccess());
+      emit(SignWithFacebookSuccess(email: userCredential.user!.email!));
     } catch (e) {
       emit(SignWithGoogleFailure(errorMessage: e.toString()));
     }

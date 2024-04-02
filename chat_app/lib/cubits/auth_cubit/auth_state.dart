@@ -27,7 +27,11 @@ final class ResgisterFailure extends AuthState {
 
 final class SignWithGoogleLoading extends AuthState {}
 
-final class SignWithGoogleSuccess extends AuthState {}
+final class SignWithGoogleSuccess extends AuthState {
+  final String email;
+
+  SignWithGoogleSuccess({required this.email});
+}
 
 final class SignWithGoogleFailure extends AuthState {
   final String errorMessage;
@@ -37,7 +41,11 @@ final class SignWithGoogleFailure extends AuthState {
 
 final class SignWithFacebookLoading extends AuthState {}
 
-final class SignWithFacebookSuccess extends AuthState {}
+final class SignWithFacebookSuccess extends AuthState {
+  final String email;
+
+  SignWithFacebookSuccess({required this.email});
+}
 
 final class SignWithFacebookFailure extends AuthState {
   final String errorMessage;

@@ -37,9 +37,29 @@ class _LoginViewState extends State<LoginView> {
             state is SignWithGoogleLoading ||
             state is SignWithFacebookLoading) {
           isloading = true;
-        } else if (state is LoginSuccess ||
-            state is SignWithGoogleSuccess ||
-            state is SignWithFacebookSuccess) {
+        } else if (state is LoginSuccess) {
+          Navigator.push(
+            context,
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => ChatView(
+                email: email,
+              ),
+            ),
+          );
+          isloading = false;
+        } else if (state is SignWithGoogleSuccess) {
+          email = state.email;
+          Navigator.push(
+            context,
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => ChatView(
+                email: email,
+              ),
+            ),
+          );
+          isloading = false;
+        } else if (state is SignWithFacebookSuccess) {
+          email = state.email;
           Navigator.push(
             context,
             MaterialPageRoute<void>(
