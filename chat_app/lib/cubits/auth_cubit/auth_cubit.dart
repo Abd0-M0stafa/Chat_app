@@ -1,13 +1,35 @@
-import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:meta/meta.dart';
 
-part 'login_state.dart';
+part 'auth_state.dart';
 
-class LoginCubit extends Cubit<LoginState> {
-  LoginCubit() : super(LoginInitial());
+class AuthCubit extends Cubit<AuthState> {
+  AuthCubit() : super(AuthInitial());
+
+  Future<void> regeterUser(
+      {required String email, required String password}) async {
+    emit(RegisterLoading());
+    try {
+      UserCredential user =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      emit(RegisterSuccess());
+    } on FirebaseAuthException catch (ex) {
+      if (ex.code == 'email-already-in-use') {
+        emit(ResgisterFailure(errorMessage: 'the email already used'));
+      } else if (ex.code == 'weak-password') {
+        emit(ResgisterFailure(errorMessage: 'The password is too weak.'));
+      }
+    } catch (e) {
+      emit(ResgisterFailure(
+          errorMessage: 'An error occurred. Please try again later.'));
+    }
+  }
 
   Future<void> loginUser(
       {required String email, required String password}) async {

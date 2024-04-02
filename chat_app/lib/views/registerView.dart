@@ -1,5 +1,5 @@
 import 'package:chat_app/Helper/CustomSnakeBar.dart';
-import 'package:chat_app/cubits/register/register_cubit.dart';
+import 'package:chat_app/cubits/auth_cubit/auth_cubit.dart';
 import 'package:chat_app/views/chatView.dart';
 import 'package:chat_app/views/loginView.dart';
 import 'package:chat_app/widgets/customTextField.dart';
@@ -32,7 +32,7 @@ class _RegisterViewState extends State<RegisterView> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<RegisterCubit, RegisterState>(
+    return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is RegisterLoading ||
             state is SignWithGoogleLoading ||
@@ -215,7 +215,7 @@ class _RegisterViewState extends State<RegisterView> {
                       ),
                       onPressed: () async {
                         if (formKey.currentState!.validate()) {
-                          BlocProvider.of<RegisterCubit>(context)
+                          BlocProvider.of<AuthCubit>(context)
                               .regeterUser(email: email!, password: password!);
                           controller.clear();
                           controller2.clear();
@@ -275,7 +275,7 @@ class _RegisterViewState extends State<RegisterView> {
                               ),
                             ),
                             onPressed: () async {
-                              await BlocProvider.of<RegisterCubit>(context)
+                              await BlocProvider.of<AuthCubit>(context)
                                   .signInWithGoogle();
                             },
                             child: SizedBox(
@@ -298,7 +298,7 @@ class _RegisterViewState extends State<RegisterView> {
                               ),
                             ),
                             onPressed: () async {
-                              await BlocProvider.of<RegisterCubit>(context)
+                              await BlocProvider.of<AuthCubit>(context)
                                   .signInWithFacebook();
                             },
                             child: const Icon(
