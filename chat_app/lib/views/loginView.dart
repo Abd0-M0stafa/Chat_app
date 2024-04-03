@@ -42,7 +42,7 @@ class _LoginViewState extends State<LoginView> {
             context,
             MaterialPageRoute<void>(
               builder: (BuildContext context) => ChatView(
-                email: email,
+                email: email!,
               ),
             ),
           );
@@ -53,7 +53,7 @@ class _LoginViewState extends State<LoginView> {
             context,
             MaterialPageRoute<void>(
               builder: (BuildContext context) => ChatView(
-                email: email,
+                email: email!,
               ),
             ),
           );
@@ -64,7 +64,7 @@ class _LoginViewState extends State<LoginView> {
             context,
             MaterialPageRoute<void>(
               builder: (BuildContext context) => ChatView(
-                email: email,
+                email: email!,
               ),
             ),
           );

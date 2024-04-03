@@ -43,7 +43,7 @@ class _RegisterViewState extends State<RegisterView> {
             context,
             MaterialPageRoute<void>(
               builder: (BuildContext context) => ChatView(
-                email: email,
+                email: email!,
               ),
             ),
           );
@@ -54,7 +54,7 @@ class _RegisterViewState extends State<RegisterView> {
             context,
             MaterialPageRoute<void>(
               builder: (BuildContext context) => ChatView(
-                email: email,
+                email: email!,
               ),
             ),
           );
@@ -65,7 +65,7 @@ class _RegisterViewState extends State<RegisterView> {
             context,
             MaterialPageRoute<void>(
               builder: (BuildContext context) => ChatView(
-                email: email,
+                email: email!,
               ),
             ),
           );

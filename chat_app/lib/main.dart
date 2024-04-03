@@ -1,5 +1,4 @@
 import 'package:chat_app/cubits/auth_cubit/auth_cubit.dart';
-import 'package:chat_app/cubits/chat_cubit/chat_cubit.dart';
 import 'package:chat_app/firebase_options.dart';
 import 'package:chat_app/views/welcomeView.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -19,15 +18,8 @@ class ChatApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<AuthCubit>(
-          create: (BuildContext context) => AuthCubit(),
-        ),
-        BlocProvider<ChatCubit>(
-          create: (BuildContext context) => ChatCubit(),
-        ),
-      ],
+    return BlocProvider(
+      create: (context) => AuthCubit(),
       child: MaterialApp(
         theme: ThemeData.dark(),
         debugShowCheckedModeBanner: false,
