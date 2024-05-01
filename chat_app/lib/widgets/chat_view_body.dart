@@ -23,6 +23,8 @@ class _ChatBodyState extends State<ChatBody> {
 
   String? finalMessage;
 
+  bool isFound = false;
+
   @override
   Widget build(BuildContext context) {
     return Column(

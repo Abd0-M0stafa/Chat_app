@@ -26,7 +26,7 @@ class CustomTextField extends StatelessWidget {
       controller: controller,
       validator: validator,
       style: const TextStyle(
-        color: Color.fromARGB(255, 28, 228, 167),
+        color: Color(0xFF1CE4A7),
       ),
       onChanged: onChanged,
       decoration: InputDecoration(

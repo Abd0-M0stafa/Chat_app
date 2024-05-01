@@ -7,6 +7,7 @@ import 'package:chat_app/views/registerView.dart';
 import 'package:chat_app/widgets/customTextField.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class LoginView extends StatefulWidget {
@@ -244,11 +245,11 @@ class _LoginViewState extends State<LoginView> {
                               await BlocProvider.of<AuthCubit>(context)
                                   .signInWithGoogle();
                             },
-                            child: SizedBox(
-                              height: 20,
-                              child: Image.asset(
-                                'images/google_icon.png',
-                              ),
+                            child: const SizedBox(
+                              height: 25,
+                              child: FaIcon(
+                                  color: Color.fromARGB(255, 28, 228, 167),
+                                  FontAwesomeIcons.google),
                             ),
                           ),
                         ),
@@ -267,10 +268,9 @@ class _LoginViewState extends State<LoginView> {
                               await BlocProvider.of<AuthCubit>(context)
                                   .signInWithFacebook();
                             },
-                            child: const Icon(
-                              Icons.facebook,
-                              color: Colors.blue,
-                            ),
+                            child: const FaIcon(
+                                color: Color.fromARGB(255, 28, 228, 167),
+                                FontAwesomeIcons.facebook),
                           ),
                         ),
                       ],

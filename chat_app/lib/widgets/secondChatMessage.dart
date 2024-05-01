@@ -2,7 +2,10 @@ import 'package:chat_app/models/messagesModel.dart';
 import 'package:flutter/material.dart';
 
 class SecondChatMessage extends StatelessWidget {
-  const SecondChatMessage({super.key, required this.message});
+  const SecondChatMessage({
+    super.key,
+    required this.message,
+  });
   final MessageModel message;
 
   @override
